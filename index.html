@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Mira | Image Uploader</title>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="theme-color" content="#EE82EE" />
+		<meta content="Mira | Image Uploader" property="og:title" />
+		<meta content="Image uploader made by Mira" property="og:description" />
+		<meta content="miraiscute.com" property="og:site_name" />
+		<meta
+			content="https://cdn.discordapp.com/attachments/873441703330185250/968450734175686666/flower-pot.png"
+			property="og:image"
+		/>
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:site" content="miraiscute.com" />
+		<meta name="twitter:creator" content="mira" />
+		<meta name="twitter:title" content="Mira | Image Uploader" />
+		<meta name="twitter:description" content="Image uploader made by Mira" />
+		<meta
+			name="twitter:image"
+			content="https://cdn.discordapp.com/attachments/873441703330185250/968450734175686666/flower-pot.png"
+		/>
+		<style>
+			#image-preview {
+				display: none;
+				width: 375px;
+			}
+			#video-preview {
+				display: none;
+				width: 375px;
+			}
+		</style>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="32x32"
+			href="flower-pot-32x32.png"
+		/>
+		<link
+			rel="icon"
+			type="image/png"
+			sizes="16x16"
+			href="flower-pot-16x16.png"
+		/>
+		<script src="https://cdn.tailwindcss.com"></script>
+	</head>
+	<body class="h-14 bg-gradient-to-r from-purple-500 to-pink-500">
+		<nav
+			class="h-14 bg-gradient-to-r from-cyan-500 to-blue-500 relative w-full flex flex-wrap items-center justify-between py-3 bg-gray-100 text-gray-500 hover:text-gray-700 focus:text-gray-700 shadow-lg"
+		>
+			<div
+				class="container-fluid w-full flex flex-wrap items-center justify-between px-6"
+			>
+				<div class="container-fluid">
+					<a class="text-xl text-black font-semibold" href="#"
+						>File Uploader By Mira</a
+					>
+				</div>
+			</div>
+		</nav>
+		<form action="upload" method="post" enctype="multipart/form-data">
+			<center>
+				<br />
+				<img id="image-preview" alt="image preview" />
+				<video id="video-preview" alt="video preview" controls>
+					<source id="video" type="video/mp4" />
+				</video>
+			</center>
+			<br />
+			<div class="flex justify-center">
+				<div class="mb-3 w-96">
+					<label
+						for="formFile"
+						class="form-label inline-block mb-2 text-gray-700"
+						>Select file to upload:</label
+					>
+					<input
+						class="form-control block w-full px-2 py-1 text-base font-normal text-gray-700 bg-white bg-clip-padding border border-solid border-gray-300 rounded transition ease-in-out m-0 focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none"
+						type="file"
+						id="image-source"
+						name="fileToUpload"
+						onchange="previewImage()"
+					/>
+				</div>
+			</div>
+			<div class="flex justify-center">
+				<input
+					class="bg-green-500 hover:bg-green-700 text-white font-bold py-1 px-2 rounded"
+					type="submit"
+					value="Upload File"
+					name="submit"
+				/>
+			</div>
+		</form>
+		<div class="flex justify-center my-2">
+			<label class="form-label inline-block mb-2 text-black-700"
+				>Max file size 10MB, only accept JPG, JPEG, PNG, GIF, WEBP & MP4 file
+				format.</label
+			>
+		</div>
+
+		<script>
+			function previewImage() {
+				var oFReader = new FileReader();
+				if (
+					document
+						.getElementById("image-source")
+						.files[0].name.split(".")
+						.pop()
+						.toLowerCase() === "mp4"
+				) {
+					document.getElementById("video-preview").style.display = "block";
+					oFReader.onload = function (e) {
+						document.querySelector("#video").src = e.target.result;
+						document.querySelector("#video-preview").load();
+					}.bind(this);
+					oFReader.readAsDataURL(
+						document.getElementById("image-source").files[0]
+					);
+				} else {
+					document.getElementById("image-preview").style.display = "block";
+					oFReader.readAsDataURL(
+						document.getElementById("image-source").files[0]
+					);
+					oFReader.onload = function (oFREvent) {
+						document.getElementById("image-preview").src =
+							oFREvent.target.result;
+					};
+					console.log(document.getElementById("image-preview"));
+				}
+			}
+		</script>
+	</body>
+</html>
