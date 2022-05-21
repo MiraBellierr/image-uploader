@@ -25,7 +25,7 @@ if(isset($_POST["submit"])) {
     $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
 }
 
-if ($_FILES["fileToUpload"]["size"] > 10000000) {
+if ($_FILES["fileToUpload"]["size"] > 100000000) {
     $result = "Sorry, your file is too large.";
     $uploadOk = 0;
 }
