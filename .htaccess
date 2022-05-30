@@ -11,6 +11,23 @@ RewriteRule ^([a-zA-Z0-9]+)\.GIF$ embed.php?$1.GIF
 RewriteRule ^([a-zA-Z0-9]+)\.WEBP$ embed.php?$1.WEBP
 RewriteRule ^([a-zA-Z0-9]+)\.JPEG$ embed.php?$1.JPEG
 RewriteRule ^([a-zA-Z0-9]+)\.mp4$ https://miraiscute.com/up/$1.mp4
-RewriteEngine On
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteRule ^([^\.]+)$ $1.php [NC,L]
+
+<IfModule mod_rewrite.c>
+RewriteEngine on
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.\*)$ $1.php
+#RewriteRule ^([a-z]+)\/?$ $1.php [NC]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.\*)$ $1.html
+#RewriteRule ^([a-z]+)\/?$ $1.html [NC]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.json -f
+RewriteRule ^(.\*)$ $1.json
+#RewriteRule ^([a-z]+)\/?$ $1.json [NC]
+
+</IfModule>
