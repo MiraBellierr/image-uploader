@@ -1,9 +1,10 @@
 <?php
-$file = 'poem.json';
+$file = 'json/548050617889980426.json';
 $data = file_get_contents($file);
 $obj = json_decode($data);
 $title = $obj->title;
 $body = $obj->body;
+$center = $obj->center;
 ?>
 
 <!DOCTYPE html>
@@ -13,7 +14,7 @@ $body = $obj->body;
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="theme-color" content="#EE82EE" />
 		<meta content="Mira | Poem of the day" property="og:title" />
-		<meta content="Poem of the day by F.s. Yousaf" property="og:description" />
+		<meta content="Poem of the day by Mira" property="og:description" />
 		<meta content="miraiscute.com" property="og:site_name" />
 		<meta
 			content="https://cdn.discordapp.com/attachments/873441703330185250/968450734175686666/flower-pot.png"
@@ -59,7 +60,7 @@ $body = $obj->body;
 	</head>
 	<body>
 		<div
-			class="flex justify-center items-center text-center min-h-screen flex-col"
+			class="flex justify-center items-center text-center <?php echo $center ?> flex-col"
 		>
 			<h2 class="font-bold text-3xl text-white"><?php echo $title ?></h2>
 			<br />

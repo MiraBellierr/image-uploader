@@ -1,20 +1,39 @@
 const fs = require("fs");
+const { writeFile } = require("../handlers/functions");
 
 module.exports = async (client, interaction) => {
 	if (interaction.isModalSubmit()) {
 		const poem = {
 			title: null,
 			body: null,
+			center: "",
 		};
 
 		poem.title = interaction.fields.getTextInputValue("poemTitle");
 		poem.body = interaction.fields.getTextInputValue("poemBody").split("\n");
 
-		fs.writeFile("../poem.json", JSON.stringify(poem, null, 2), (err) => {
-			if (err) return console.log(err);
+		if (
+			interaction.fields.getTextInputValue("poemCenter").toLowerCase() === "yes"
+		)
+			poem.center = "min-h-screen";
 
-			interaction.reply(`Updated`);
-		});
+		fs.writeFile(
+			`../json/${interaction.user.id}.json`,
+			JSON.stringify(poem, null, 2),
+			(err) => {
+				if (err) return console.log(err);
+
+				writeFile(interaction);
+
+				if (interaction.user.id !== "548050617889980426")
+					interaction.reply(
+						`Updated https://miraiscute/poems/${interaction.user.id}`
+					);
+				else {
+					interaction.reply(`Updated https://miraiscute/poem`);
+				}
+			}
+		);
 	}
 
 	if (!interaction.isCommand()) return;

@@ -1,3 +1,5 @@
 node_modules
 .env
 up/*
+json/*
+poem/*
