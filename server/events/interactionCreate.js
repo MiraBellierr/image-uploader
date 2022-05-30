@@ -27,10 +27,10 @@ module.exports = async (client, interaction) => {
 
 				if (interaction.user.id !== "548050617889980426")
 					interaction.reply(
-						`Updated https://miraiscute/poems/${interaction.user.id}`
+						`Updated https://miraiscute.com/poems/${interaction.user.id}`
 					);
 				else {
-					interaction.reply(`Updated https://miraiscute/poem`);
+					interaction.reply(`Updated https://miraiscute.com/poem`);
 				}
 			}
 		);
