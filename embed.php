@@ -12,7 +12,7 @@ include 'engine.php';
         <meta name="theme-color" content="#FF1493">
         <link rel="icon" type="image/png" sizes="32x32" href="flower-pot-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="flower-pot-16x16.png">
-        <link type="application/json+oembed" href="https://<?php echo $host;?>/json?<?php echo $query;?>">
+        <link type="application/json+oembed" href="https://<?php echo $host;?>/json.php?<?php echo $query;?>">
         <script src="https://cdn.tailwindcss.com"></script>
     </head>
     <body class="h-14 bg-gradient-to-r from-purple-500 to-pink-500">
