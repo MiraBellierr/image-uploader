@@ -53,6 +53,8 @@ $center = $obj->center;
 				font-family: "Alegreya", serif;
 				margin: 0;
 				padding: 0;
+			}
+			.outer {
 				background-image: url("landscape-1653900045565-3997.jpg");
 			}
 		</style>
@@ -60,15 +62,21 @@ $center = $obj->center;
 	</head>
 	<body>
 		<div
-			class="flex justify-center items-center text-center <?php echo $center ?> flex-col"
+			class="outer flex justify-center items-center text-center <?php echo $center ?> flex-col"
 		>
-			<h2 class="font-bold text-3xl text-white"><?php echo $title ?></h2>
-			<br />
-			<?php 
-				foreach ($body as $line) {
-					echo "<p class='italic text-lg text-white'>".$line."</p>";
-				}
-			?>
+			<div class="inter">
+				<h2 class="font-bold text-3xl text-white"><?php echo $title ?></h2>
+				<br />
+				<?php 
+					foreach ($body as $line) {
+						if (trim($line) == "") {
+							echo "<br />";
+						} else {
+							echo "<p class='italic text-lg text-white'>".$line."</p>";
+						}
+					}
+				?>
+			</div>
 		</div>
 	</body>
 </html>
