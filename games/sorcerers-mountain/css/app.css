@@ -1,0 +1,48 @@
+body,
+html {
+	height: 100%;
+	overflow: hidden;
+	background: #1f1f1f;
+}
+canvas {
+	border: 1px solid black;
+}
+#gameArea {
+	text-align: center;
+	margin-top: 70px;
+}
+
+.bg {
+	/* The image used */
+	background-image: url("TileSets/magic_bg.jpg");
+
+	/* Full height */
+	height: 100%;
+
+	/* Center and scale the image nicely */
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+#myForm {
+	position: absolute;
+	width: 200px;
+	height: 150px;
+	top: 575px;
+	left: 50%;
+	margin-left: 300px;
+	background-color: rgba(180, 180, 180, 0.7);
+	border: solid 3px;
+}
+#myForm,
+#myForm input {
+	text-align: center;
+	font-size: 18px;
+	font-weight: 700;
+	color: #ff6600;
+	-webkit-text-stroke: 1px #622c00;
+	text-stroke: 1px #622c00;
+	font-family: tahoma, sans-serif;
+	text-transform: uppercase;
+}

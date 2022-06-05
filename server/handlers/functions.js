@@ -123,35 +123,27 @@ module.exports = {
 					rel="stylesheet"
 				/>
 				<style>
-				* {
-					font-family: "Alegreya", serif;
-					margin: 0;
-					padding: 0;
-				}
-				.outer {
-					background-image: url("../landscape-1653900045565-3997.jpg");
-				}
-			</style>
+					* {
+						font-family: "Alegreya", serif;
+						margin: 0;
+						padding: 0;
+						background-image: url("../landscape-1653900045565-3997.jpg");
+					}
+				</style>
 				<script src="https://cdn.tailwindcss.com"></script>
 			</head>
 			<body>
-			<div
-			class="outer flex justify-center items-center text-center <?php echo $center ?> flex-col"
-		>
-			<div class="inter">
-				<h2 class="font-bold text-3xl text-white"><?php echo $title ?></h2>
-				<br />
-				<?php 
-					foreach ($body as $line) {
-						if (trim($line) == "") {
-							echo "<br />";
-						} else {
+				<div
+					class="flex justify-center items-center text-center <?php echo $center ?> flex-col"
+				>
+					<h2 class="font-bold text-3xl text-white"><?php echo $title ?></h2>
+					<br />
+					<?php 
+						foreach ($body as $line) {
 							echo "<p class='italic text-lg text-white'>".$line."</p>";
 						}
-					}
-				?>
-			</div>
-		</div>
+					?>
+				</div>
 			</body>
 		</html>
 		`;
