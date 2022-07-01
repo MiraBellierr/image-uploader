@@ -1,5 +1,23 @@
 ErrorDocument 404 /404
-RewriteEngine On
+
+<IfModule mod_rewrite.c>
+RewriteEngine on
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.php -f
+RewriteRule ^(.*)$ $1.php
+#RewriteRule ^([a-z]+)\/?$ $1.php [NC]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.*)$ $1.html
+#RewriteRule ^([a-z]+)\/?$ $1.html [NC]
+
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.json -f
+RewriteRule ^(.*)$ $1.json
+#RewriteRule ^([a-z]+)\/?$ $1.json [NC]
+
 RewriteRule ^([a-zA-Z0-9]+)\.jpg$ embed.php?$1.jpg
 RewriteRule ^([a-zA-Z0-9]+)\.png$ embed.php?$1.png
 RewriteRule ^([a-zA-Z0-9]+)\.gif$ embed.php?$1.gif
@@ -11,23 +29,4 @@ RewriteRule ^([a-zA-Z0-9]+)\.GIF$ embed.php?$1.GIF
 RewriteRule ^([a-zA-Z0-9]+)\.WEBP$ embed.php?$1.WEBP
 RewriteRule ^([a-zA-Z0-9]+)\.JPEG$ embed.php?$1.JPEG
 RewriteRule ^([a-zA-Z0-9]+)\.mp4$ https://miraiscute.com/up/$1.mp4
-
-<IfModule mod_rewrite.c>
-RewriteEngine on
-
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME}.php -f
-RewriteRule ^(.\*)$ $1.php
-#RewriteRule ^([a-z]+)\/?$ $1.php [NC]
-
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME}.html -f
-RewriteRule ^(.\*)$ $1.html
-#RewriteRule ^([a-z]+)\/?$ $1.html [NC]
-
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteCond %{REQUEST_FILENAME}.json -f
-RewriteRule ^(.\*)$ $1.json
-#RewriteRule ^([a-z]+)\/?$ $1.json [NC]
-
 </IfModule>
