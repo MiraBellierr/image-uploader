@@ -54,15 +54,29 @@ $center = $obj->center;
 				margin: 0;
 				padding: 0;
 			}
-			.outer {
-				background-image: url("landscape-1653900045565-3997.jpg");
+
+			body {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				height: 100vh;
+				text-align: center;
+				background: url("landscape-1653900045565-3997.jpg") no-repeat center center/ cover;
+
+			}
+			
+			.inter {
+				padding: 50px;
+				background-color: rgba(0, 0, 0, 0.5);
+				box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+				border-radius: 10px;
 			}
 		</style>
 		<script src="https://cdn.tailwindcss.com"></script>
 	</head>
 	<body>
 		<div
-			class="outer flex justify-center items-center text-center <?php echo $center ?> flex-col"
+			class="outer flex justify-center items-center text-center min-h-screen flex-col"
 		>
 			<div class="inter">
 				<h2 class="font-bold text-3xl text-white"><?php echo $title ?></h2>
