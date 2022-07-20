@@ -6,16 +6,10 @@ module.exports = async (client, interaction) => {
 		const poem = {
 			title: null,
 			body: null,
-			center: "",
 		};
 
 		poem.title = interaction.fields.getTextInputValue("poemTitle");
 		poem.body = interaction.fields.getTextInputValue("poemBody").split("\n");
-
-		if (
-			interaction.fields.getTextInputValue("poemCenter").toLowerCase() === "yes"
-		)
-			poem.center = "min-h-screen";
 
 		fs.writeFile(
 			`../json/${interaction.user.id}.json`,
