@@ -59,9 +59,8 @@ $center = $obj->center;
 				display: flex;
 				justify-content: center;
 				align-items: center;
-				height: 100vh;
 				text-align: center;
-				background: url("landscape-1653900045565-3997.jpg") no-repeat center center/ cover;
+				background: url("landscape-1653900045565-3997.jpg") no-repeat center center/cover;
 
 			}
 			
