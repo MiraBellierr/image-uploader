@@ -42,6 +42,7 @@ if ($uploadOk == 0) {
         if ($imageFileType == "mp4") {
             if ($_POST['key'] == "sharex") {
                 echo "https://miraiscute.com/up/$newfile";
+                http_response_code(200);
                 return;
             }
             $result = "https://miraiscute.com/up/$newfile";
@@ -113,9 +114,11 @@ if ($uploadOk == 0) {
             </body>
         </html>
         ';
+        http_response_code(200);
         } else {
             if ($_POST['key'] == 'sharex') {
                 echo "https://miraiscute.com/$newfile";
+                http_response_code(200);
                 return;
             }
             $result = "https://miraiscute.com/$newfile";
@@ -188,6 +191,7 @@ if ($uploadOk == 0) {
             </body>
         </html>
         ';
+        http_response_code(200);
         }
     } else {
         $result = "Sorry, there was an error uploading your file.";
